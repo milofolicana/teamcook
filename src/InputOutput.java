@@ -131,6 +131,11 @@ public class InputOutput {
 			orders.add(new Order(x,y,Li,n_products,reader.readLine()));				
 		}
 		
+		//initializeDrones
+		for(int i=0; i<n_drones; i++){
+			drones.add(new Drone(i, max_load, n_products, dw.get(0).getX(), dw.get(0).getY()));
+		}
+		
 		reader.close();
 		
 		
@@ -138,7 +143,22 @@ public class InputOutput {
 	
 	public void initializeDistances(){
 		
-		//stream su DW e ORDER forEach(FUNCTION_DISTANZA)
+		for(int i=0;i<n_dw;i++){
+			for(int j=0;j<n_orders;j++)
+			dw.get(i).setDistance_orders(this.distWareOrd(i, j), j);
+		}
+		
+		for(int i=0;i<n_dw;i++){
+			for(int j=0;j<n_dw;j++){
+			dw.get(i).setDistance_warehouse(this.distWareWare(i, j), j);
+			orders.get(j).setDistance_warehouse(this.distWareWare(i, j), i);
+			}
+		}
+		
+		for(int i=0;i<n_orders;i++){
+			for(int j=0;j<n_orders;j++)
+			orders.get(i).setDistance_orders(this.distOrdOrd(i, j), j);
+		}
 		
 	}
 	
@@ -165,7 +185,37 @@ public class InputOutput {
 	
 		
 	}
-
+	
+	//distances
+	
+	public int dist(int x1, int y1, int x2, int y2) {
+        return (int) Math.ceil(Math.sqrt((x2-x1)*(x2-x1)-(y2-y1)*(y2-y1)));
+    }
+    
+    public int distOrdOrd(int id1, int id2) {
+        int x1 = orders.get(id1).getX();
+        int x2 = orders.get(id2).getX();
+        int y1 = orders.get(id1).getY();
+        int y2 = orders.get(id2).getY();
+        return dist(x1,x2,y1,y2);
+    }
+    
+    public int distWareWare(int id1, int id2) {
+        int x1 = dw.get(id1).getX();
+        int x2 = dw.get(id2).getX();
+        int y1 = dw.get(id1).getY();
+        int y2 = dw.get(id2).getY();
+        return dist(x1,x2,y1,y2);
+    }
+    
+    public int distWareOrd(int id1, int id2) {
+        int x1 = dw.get(id1).getX();
+        int x2 = orders.get(id2).getX();
+        int y1 = dw.get(id1).getY();
+        int y2 = orders.get(id2).getY();
+        return dist(x1,x2,y1,y2);
+    }
+	
 	//getter methods
 	
 	public int[][] getDw_Map() {

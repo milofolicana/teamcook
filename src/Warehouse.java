@@ -78,8 +78,23 @@ public class Warehouse {
 	public int[] getProducts(){
 		return this.products;
 	}
+
+
+
+	public int getX() {
+		return x;
+	}
+
+
+
+	public int getY() {
+		return y;
+	}
+	
+	
 	
 	public void updateProduct(int p, int quantity){
 		this.products[p]=this.products[p]-quantity;
 	}
+
 }

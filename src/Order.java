@@ -55,7 +55,14 @@ public class Order {
 		return distance_warehouse;
 	}
 
+	public int getX() {
+		return x;
+	}
 
+
+	public int getY() {
+		return y;
+	}
 
 	public void setDistance_warehouse(int distance, int dw) {
 		this.distance_warehouse[dw]=distance;
