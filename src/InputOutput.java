@@ -8,6 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.LinkedList;
+import java.util.Scanner;
 
 import it.polito.utility.files.CsvParser;
 
@@ -15,8 +16,8 @@ public class InputOutput {
 	
 	private char[][] matrix;
 	private char[][] matrix_bis;
-	private char rows;
-	private char columns;
+	private int rows;
+	private int columns;
 	
 	private String inputPath;
 	private String outPath;
@@ -35,10 +36,13 @@ public class InputOutput {
 		
 		//open first line and "allocate" the matrix
 		first_line=reader.readLine();
-		rows=first_line.charAt(0);
-		columns=first_line.charAt(2);
-		matrix= new char[(int)rows][(int)columns];
-		matrix_bis= new char[(int)rows][(int)columns];
+		Scanner sc= new Scanner(first_line);
+		sc.useDelimiter(" ");
+		rows=sc.nextInt();
+		columns=sc.nextInt();
+		sc.close();
+		matrix= new char[rows][columns];
+		matrix_bis=new char[rows][columns];
 		
 		//start reading in the matrix
 		int i=0;
@@ -46,6 +50,7 @@ public class InputOutput {
 		while(line!=null){
 			matrix[i]=line.toCharArray();
 			matrix_bis[i]=line.toCharArray();
+			nicolaFunction(matrix_bis[i]);
 			i++;
 			line=reader.readLine();
 		}
@@ -57,6 +62,7 @@ public class InputOutput {
 		BufferedWriter writer = new BufferedWriter(new FileWriter(outPath));
 		for(int i=0;i<rows;i++){
 			writer.write(matrix_bis[i]);
+			writer.write("\n");
 		}
 		
 	}
@@ -64,8 +70,8 @@ public class InputOutput {
 	public void nicolaFunction(char[] row){
 		for(int i=0;i<row.length;i++){
 			if(row[i]=='#')
-				row[i]=1;
-			else row[i]=0;
+				row[i]='1';
+			else row[i]='0';
 		}
 	}
 	
