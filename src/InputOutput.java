@@ -1,5 +1,6 @@
 import it.polito.utility.files.CsvParser;
 
+import java.awt.List;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -20,6 +21,9 @@ public class InputOutput {
 	
 	private int n_products;
 	private int[] products;
+	
+	private LinkedList<Warehouse> dw = new LinkedList<>();
+	
 	private String inputPath;
 	private String outPath;
 	
@@ -41,7 +45,7 @@ public class InputOutput {
 		//open the file
 		BufferedReader reader = new BufferedReader(new FileReader(inputPath));
 		
-		//open first line and "allocate" the matrix
+		//open first line 
 		first_line=reader.readLine();
 		Scanner sc= new Scanner(first_line);
 		sc.useDelimiter(" ");
@@ -52,13 +56,17 @@ public class InputOutput {
 		max_load=sc.nextInt();
 		sc.close();
 		
-		//open second_line
-		
+		//open second_line		
 		second_line=reader.readLine();
 		sc=new Scanner(second_line);
 		n_products=sc.nextInt();
 		products=new int[n_products];
-			
+		sc.close();
+		
+		for(int i=0;i<n_products;i++){
+			products[i]=Integer.parseInt(reader.readLine());
+		}
+		
 	}
 	
 	public void end() throws IOException{
