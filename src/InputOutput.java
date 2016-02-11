@@ -8,6 +8,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -22,7 +23,8 @@ public class InputOutput {
 	private int n_products;
 	private int[] products;
 	
-	private LinkedList<Warehouse> dw = new LinkedList<>();
+	private ArrayList<Warehouse> dw = new ArrayList<>();
+	private int n_dw;
 	
 	private String inputPath;
 	private String outPath;
@@ -33,6 +35,8 @@ public class InputOutput {
 	private int drones;
 	private int deadline;
 	private int max_load;
+	private String third_line;
+
 	
 	//strutture richieste per salvare il file di input
 	
@@ -63,9 +67,22 @@ public class InputOutput {
 		products=new int[n_products];
 		sc.close();
 		
+		//read products
 		for(int i=0;i<n_products;i++){
 			products[i]=Integer.parseInt(reader.readLine());
 		}
+		
+		//open thirdline
+		third_line=reader.readLine();
+		sc=new Scanner(third_line);
+		n_dw=sc.nextInt();
+		sc.close();
+		
+		//read warehouse
+		for(int i=0;i<n_dw;i++){
+		sc=new Scanner(reader.readLine());
+		}
+		
 		
 	}
 	
