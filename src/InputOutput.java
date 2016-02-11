@@ -25,7 +25,11 @@ public class InputOutput {
 	
 	private ArrayList<Warehouse> dw = new ArrayList<>();
 	private int n_dw;
-	private int x,y;
+	
+	private ArrayList<Order> orders= new ArrayList<>();
+	private int n_orders;
+	
+	int x,y;
 	
 	private String inputPath;
 	private String outPath;
@@ -39,7 +43,6 @@ public class InputOutput {
 	private int drones;
 	private int deadline;
 	private int max_load;
-	private int n_orders;
 
 	
 	//strutture richieste per salvare il file di input
@@ -100,6 +103,15 @@ public class InputOutput {
 		//read orders
 		for(int i=0;i<n_orders;i++){
 			sc=new Scanner(reader.readLine());
+			x=sc.nextInt();
+			y=sc.nextInt();
+			sc.close();
+	
+			sc=new Scanner(reader.readLine());
+			int n_p = sc.nextInt();
+			sc.close();
+			
+			orders.add(new Order(x,y,reader.Line(),n_p));				
 		}
 		
 	}
