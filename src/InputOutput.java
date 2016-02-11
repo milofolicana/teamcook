@@ -121,7 +121,6 @@ public class InputOutput {
 			x=sc.nextInt();
 			y=sc.nextInt();
 			sc.close();
-			
 			o_map[x][y]=i;
 	
 			sc=new Scanner(reader.readLine());
@@ -149,7 +148,8 @@ public class InputOutput {
 		writer.write("col= "+ this.getColumns() + " rows= " + this.getRows() + 
 				" n_dw= " + this.getN_dw() +" dw= "+ this.getDw() 
 				+ " n_products= " + this.getN_products() + " products= "+ this.getProducts() + 
-				"n_orders= "+ this.getN_orders()+ " orders= " + this.getOrders()+"\n");
+				"n_orders= "+ this.getN_orders()+ " orders= " + this.getOrders()+
+				+ " n_drones= "+ this.getN_Drones()+" drones= "+ this.drones()+ "\n");
 		
 		for(int i=0;i<rows;i++){
 			for(int j=0;j<columns;j++)
