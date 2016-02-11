@@ -18,6 +18,8 @@ import it.polito.utility.files.CsvParser;
 public class InputOutput {
 	
 	private int[][] dw_map;
+	private int[][] o_map;
+	
 	private int rows;
 	private int columns;
 	
@@ -30,6 +32,9 @@ public class InputOutput {
 	private ArrayList<Order> orders= new ArrayList<>();
 	private int n_orders;
 	
+	private ArrayList<Drone> drones = new ArrayList<>();
+	private int n_drones;
+	
 	int x,y;
 	
 	private String inputPath;
@@ -40,7 +45,6 @@ public class InputOutput {
 	private String third_line;
 	private String fourth_line;
 	
-	private int n_drones;
 	private int deadline;
 	private int max_load;
 
@@ -107,6 +111,7 @@ public class InputOutput {
 		sc=new Scanner(fourth_line);
 		sc.useDelimiter(" ");
 		n_orders=sc.nextInt();
+		o_map=new int[rows][columns];
 		sc.close();
 		
 		//read orders
@@ -116,6 +121,8 @@ public class InputOutput {
 			x=sc.nextInt();
 			y=sc.nextInt();
 			sc.close();
+			
+			o_map[x][y]=i;
 	
 			sc=new Scanner(reader.readLine());
 			sc.useDelimiter(" ");
