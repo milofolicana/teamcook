@@ -6,6 +6,7 @@ public class Drone {
 	private int[] products;
 	private int x;
 	private int y;
+	StringBuffer sb = new StringBuffer();
 
 	
 	public Drone(int droneID, int maxWeight, int products, int x, int y) {
@@ -20,22 +21,20 @@ public class Drone {
 		this.y = y;
 	}
 
-	public String load(int warehouseID, int product, int quantity) {
+	public void load(int warehouseID, int product, int quantity) {
 		if (products[product]>quantity) {
 			products[product] = products[product]+quantity;
 			//this should be printed on a file
-			return(droneID + " L " + warehouseID + " " + product + " " + quantity);
+			sb.append(droneID + " L " + warehouseID + " " + product + " " + quantity);
 		}
-		return null;
 	}
 	
-	public String deliver(int customerID, int product, int quantity) {
+	public void deliver(int customerID, int product, int quantity) {
 		if(products[product]>quantity) {
 			products[product] = products[product]-quantity;
 			//this should be printed on a file
-			return(droneID + " D " + customerID + " " + product + " " + quantity);
+			sb.append(droneID + " D " + customerID + " " + product + " " + quantity);
 		}
-		return null;		
 	}
 	
 	public void unload (int productToUnload, int nrOfProductsToUnload) {
@@ -46,5 +45,8 @@ public class Drone {
 		
 	}
 		
+	public String getPath(){
+		return sb.toString();
+	}
 	
 }

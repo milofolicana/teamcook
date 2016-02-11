@@ -183,25 +183,6 @@ public class InputOutput {
 	}
 	
 	public void end() throws IOException{
-		
-		BufferedWriter writer = new BufferedWriter(new FileWriter(outPath));
-		writer.write("col= "+ this.getColumns() + " rows= " + this.getRows() + 
-				" n_dw= " + this.getN_dw() +" dw= "+ this.getDw() 
-				+ " n_products= " + this.getN_products() + " products= "+ this.getProducts() + 
-				"n_orders= "+ this.getN_orders()+ " orders= " + this.getOrders()+
-				 " n_drones= "+ this.getN_Drones()+" drones= "+ this.getDrones()+ "\n");
-		
-		for(int i=0;i<rows;i++){
-			for(int j=0;j<columns;j++)
-			System.out.print(dw_map[i][j]);
-			System.out.print("\n");
-		}
-		
-		for(int i=0;i<rows;i++){
-			for(int j=0;j<columns;j++)
-			System.out.print(o_map[i][j]);
-			System.out.print("\n");
-		}
 	
 		
 	}
