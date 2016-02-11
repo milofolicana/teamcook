@@ -137,6 +137,12 @@ public class InputOutput {
 		
 	}
 	
+	public void initializeDistances(){
+		
+		//stream su DW e ORDER forEach(FUNCTION_DISTANZA)
+		
+	}
+	
 	public void end() throws IOException{
 		
 		BufferedWriter writer = new BufferedWriter(new FileWriter(outPath));
@@ -148,6 +154,12 @@ public class InputOutput {
 		for(int i=0;i<rows;i++){
 			for(int j=0;j<columns;j++)
 			System.out.print(dw_map[i][j]);
+			System.out.print("\n");
+		}
+		
+		for(int i=0;i<rows;i++){
+			for(int j=0;j<columns;j++)
+			System.out.print(o_map[i][j]);
 			System.out.print("\n");
 		}
 	
