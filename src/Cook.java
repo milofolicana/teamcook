@@ -28,12 +28,10 @@ public class Cook extends JFrame {
 		
 		String in = chooser.getSelectedFile().getAbsolutePath();
 		String out = chooser.getSelectedFile().getParent()+File.separator+"out.txt";
-		
-		
-		InputOutput tim;
-		
-		tim = new InputOutput(in,out);
+			
+		InputOutput tim = new InputOutput(in,out);
 		tim.start();
+		tim.initializeDistances();
 		tim.end();
 		
 	}

@@ -78,6 +78,7 @@ public class Warehouse {
 	public int[] getProducts(){
 		return this.products;
 	}
+<<<<<<< HEAD
 
 
 
@@ -92,4 +93,10 @@ public class Warehouse {
 	}
 	
 	
+=======
+	
+	public void updateProduct(int p, int quantity){
+		this.products[p]=this.products[p]-quantity;
+	}
+>>>>>>> origin/master
 }
