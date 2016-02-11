@@ -35,6 +35,7 @@ public class InputOutput {
 	private ArrayList<Drone> drones = new ArrayList<>();
 	private int n_drones;
 	
+	
 	int x,y;
 	
 	private String inputPath;

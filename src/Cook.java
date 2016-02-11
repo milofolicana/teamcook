@@ -32,6 +32,9 @@ public class Cook extends JFrame {
 		InputOutput tim = new InputOutput(in,out);
 		tim.start();
 		tim.initializeDistances();
+		
+		
+		
 		tim.end();
 		
 	}
