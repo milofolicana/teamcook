@@ -281,15 +281,20 @@ public class InputOutput {
 	public int getN_orders() {
 		return n_orders;
 	}
+
 	
 	//drones
 	
 	public void flyDroneToOrder(Drone d, Order o) {
+		d.updateTurn(dist(d.getX(), d.getY(), o.getX(), o.getY()));
+		d.setX(o.getX());
+		d.setY(o.getY());
 		
 	}
 	
 	public void flyDroneToWarehouse(Drone d, Warehouse w) {
-		
+		int distance = dist(d.getX(), d.getY(), w.getX(), w.getY());
+
 	}
 		
 
