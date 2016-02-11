@@ -43,7 +43,9 @@ public class InputOutput {
 		sc.close();
 		matrix= new char[rows][columns];
 		matrix_bis=new char[rows][columns];
-		
+		matrix= new char[rows][columns+1];
+		matrix_bis= new char[rows][columns+1];
+
 		//start reading in the matrix
 		int i=0;
 		String line=reader.readLine();
