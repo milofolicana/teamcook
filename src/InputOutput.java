@@ -69,7 +69,7 @@ public class InputOutput {
 		
 	}
 	
-	public void nicolaFunction(char[] row){
+	public void miloFunction(char[] row){
 		for(int i=0;i<row.length;i++){
 			if(row[i]=='#')
 				row[i]='1';
