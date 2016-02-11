@@ -162,6 +162,25 @@ public class InputOutput {
 		
 	}
 	
+	public void sortOrder(){
+		
+		
+		
+	}
+	
+	public int satisfy(int o, int d){
+		int count=0;
+		Warehouse ware = dw.get(d);
+		Order od=orders.get(o);
+		for(int i=0;i<od.getProducts().length;i++){
+			int p=od.getProductQuantity(i);
+			int prod=od.getProducts()[i];
+			if(ware.getProductQuantity(prod)>=p)
+				count+=1;
+		else count+=(p-ware.getProductQuantity(prod))/p;
+		}
+	}
+	
 	public void end() throws IOException{
 		
 		BufferedWriter writer = new BufferedWriter(new FileWriter(outPath));
