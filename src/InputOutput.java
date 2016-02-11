@@ -40,7 +40,7 @@ public class InputOutput {
 	private String third_line;
 	private String fourth_line;
 	
-	private int drones;
+	private int n_drones;
 	private int deadline;
 	private int max_load;
 
@@ -62,7 +62,7 @@ public class InputOutput {
 		sc.useDelimiter(" ");
 		rows=sc.nextInt();
 		columns=sc.nextInt();
-		drones=sc.nextInt();
+		n_drones=sc.nextInt();
 		deadline=sc.nextInt();
 		max_load=sc.nextInt();
 		sc.close();
@@ -123,6 +123,8 @@ public class InputOutput {
 			reader.readLine();
 			orders.add(new Order(x,y,n_p,reader.readLine()));				
 		}
+		
+		reader.close();
 		
 		
 	}
@@ -191,8 +193,5 @@ public class InputOutput {
 		return n_orders;
 	}
 
-	
-	
-	
 	
 }
