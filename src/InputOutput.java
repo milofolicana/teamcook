@@ -32,13 +32,13 @@ public class InputOutput {
 	
 	private String first_line;
 	private String second_line;
+	private String third_line;
+	private String ourth_line;
+	private String fourth_line;
 	
 	private int drones;
 	private int deadline;
 	private int max_load;
-	private String third_line;
-	private String ourth_line;
-	private String fourth_line;
 	private int n_orders;
 
 	
@@ -96,6 +96,11 @@ public class InputOutput {
 		sc=new Scanner(fourth_line);
 		n_orders=sc.nextInt();
 		sc.close();
+		
+		//read orders
+		for(int i=0;i<n_orders;i++){
+			sc=new Scanner(reader.readLine());
+		}
 		
 	}
 	
