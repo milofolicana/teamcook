@@ -14,14 +14,21 @@ import it.polito.utility.files.CsvParser;
 
 public class InputOutput {
 	
-	private char[][] matrix;
-	private char[][] matrix_bis;
+	private char[][] map;
 	private int rows;
 	private int columns;
 	
+	private int n_products;
+	private int[] products;
 	private String inputPath;
 	private String outPath;
+	
 	private String first_line;
+	private String second_line;
+	
+	private int drones;
+	private int deadline;
+	private int max_load;
 	
 	//strutture richieste per salvare il file di input
 	
@@ -40,43 +47,59 @@ public class InputOutput {
 		sc.useDelimiter(" ");
 		rows=sc.nextInt();
 		columns=sc.nextInt();
+		drones=sc.nextInt();
+		deadline=sc.nextInt();
+		max_load=sc.nextInt();
 		sc.close();
-		matrix= new char[rows][columns];
-		matrix_bis=new char[rows][columns];
-		matrix= new char[rows][columns+1];
-		matrix_bis= new char[rows][columns+1];
-
-		//start reading in the matrix
-		int i=0;
-		String line=reader.readLine();
-		while(line!=null){
-			matrix[i]=line.toCharArray();
-			matrix_bis[i]=line.toCharArray();
-			miloFunction(matrix_bis[i]);
-			i++;
-			line=reader.readLine();
-		}
+		
+		//open second_line
+		
+		second_line=reader.readLine();
+		sc=new Scanner(second_line);
+		n_products=sc.nextInt();
+		products=new int[n_products];
 			
 	}
 	
 	public void end() throws IOException{
 		
-		BufferedWriter writer = new BufferedWriter(new FileWriter(outPath));
-		for(int i=0;i<rows;i++){
-			writer.write(matrix_bis[i]);
-			writer.write("\n");
-		}
 		
 	}
-	
-	public void miloFunction(char[] row){
-		for(int i=0;i<row.length;i++){
-			if(row[i]=='#')
-				row[i]='1';
-			else row[i]='0';
-		}
+
+	public char[][] getMap() {
+		return map;
+	}
+
+	public void setMap(char[][] map) {
+		this.map = map;
+	}
+
+	public int getDrones() {
+		return drones;
+	}
+
+	public void setDrones(int drones) {
+		this.drones = drones;
+	}
+
+	public int getDeadline() {
+		return deadline;
+	}
+
+	public void setDeadline(int deadline) {
+		this.deadline = deadline;
+	}
+
+	public int getMax_load() {
+		return max_load;
+	}
+
+	public void setMax_load(int max_load) {
+		this.max_load = max_load;
 	}
 	
+	
 	//getter methods
+	
 	
 }
