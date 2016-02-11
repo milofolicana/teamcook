@@ -37,6 +37,9 @@ public class InputOutput {
 	private int deadline;
 	private int max_load;
 	private String third_line;
+	private String ourth_line;
+	private String fourth_line;
+	private int n_orders;
 
 	
 	//strutture richieste per salvare il file di input
@@ -50,7 +53,7 @@ public class InputOutput {
 		//open the file
 		BufferedReader reader = new BufferedReader(new FileReader(inputPath));
 		
-		//open first line 
+		//first line---->MAP DRONES DEADLINE MAXLOAD
 		first_line=reader.readLine();
 		Scanner sc= new Scanner(first_line);
 		sc.useDelimiter(" ");
@@ -61,7 +64,7 @@ public class InputOutput {
 		max_load=sc.nextInt();
 		sc.close();
 		
-		//open second_line		
+		//second_line---->P
 		second_line=reader.readLine();
 		sc=new Scanner(second_line);
 		n_products=sc.nextInt();
@@ -73,7 +76,7 @@ public class InputOutput {
 			products[i]=Integer.parseInt(reader.readLine());
 		}
 		
-		//open thirdline
+		//thirdline--->DW
 		third_line=reader.readLine();
 		sc=new Scanner(third_line);
 		n_dw=sc.nextInt();
@@ -84,10 +87,15 @@ public class InputOutput {
 		sc=new Scanner(reader.readLine());
 		x=sc.nextInt();
 		y=sc.nextInt();
-		dw.add(new Warehouse(x,y,reader.readLine()));
-		
+		sc.close();
+		dw.add(new Warehouse(x,y,reader.readLine(),n_products));
 		}
 		
+		//4th line
+		fourth_line=reader.readLine();
+		sc=new Scanner(fourth_line);
+		n_orders=sc.nextInt();
+		sc.close();
 		
 	}
 	
