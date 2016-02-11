@@ -6,6 +6,7 @@ public class Drone {
 	private int[] products;
 	private int x;
 	private int y;
+	int turn;
 	StringBuffer sb = new StringBuffer();
 
 	
@@ -19,6 +20,7 @@ public class Drone {
 		}
 		this.x = x;
 		this.y = y;
+		turn = 0;
 	}
 
 	public void load(int warehouseID, int product, int quantity) {

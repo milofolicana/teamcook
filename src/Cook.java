@@ -1,5 +1,3 @@
-
-
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -37,6 +35,9 @@ public class Cook extends JFrame {
 		tim.end();
 		
 		//2
+		for (int i = 0; i < tim.getN_orders(); i++) {
+			
+		}
 		
 		frame = new JFrame();
 		chooser = new JFileChooser();

@@ -166,12 +166,15 @@ public class InputOutput {
 	
 	public void sortOrder(){
 		
+<<<<<<< Updated upstream
 		this.getOrders().stream().
 		sorted(Comparator.comparing((Order one) -> distWareOrd(0,orders.indexOf(one))).reversed());
 //				(Order one, Order two)->{
 //			return satisfy(one,dw.get(0))-satisfy(two,dw.get(0));
 //		});
 		
+=======
+>>>>>>> Stashed changes
 	}
 	
 	public int satisfy(Order o, Warehouse ware){
