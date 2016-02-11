@@ -7,20 +7,24 @@ public class Drone {
 	private int positionX;
 	private int positionY;
 
-	public void setMaxWeight(int maxWeight) {
+	
+	public Drone(int droneID, int maxWeight, int products, int positionX,
+			int positionY) {
+		super();
+		this.droneID = droneID;
 		this.maxWeight = maxWeight;
-	}
-	
-	public void initializeProducts(int nrProducts) {
-		products = new int[nrProducts];
-		for(int i = 0;i<nrProducts;i++){
-			products[i]=0;
+		this.products = new int[products];
+		for(int i = 0;i<products;i++){
+			this.products[i]=0;
 		}
+		this.positionX = positionX;
+		this.positionY = positionY;
 	}
-	
+
 	public void load(int warehouseID, int product, int quantity) {
 		if (products[product]>quantity) {
 			products[product] = products[product]-quantity;
+			//this should be printed on a file
 			System.out.println(droneID + " L " + warehouseID + " " + product + " " + quantity);
 		}
 	}
@@ -28,6 +32,7 @@ public class Drone {
 	public void deliver(int customerID, int product, int quantity) {
 		if(products[product]>quantity) {
 			products[product] = products[product]-quantity;
+			//this should be printed on a file
 			System.out.println(droneID + " D " + customerID + " " + product + " " + quantity);
 		}
 		
