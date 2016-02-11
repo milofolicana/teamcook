@@ -180,7 +180,7 @@ public class InputOutput {
 				count+=1;
 		else count+=(p-ware.getProductQuantity(prod))/p;
 		}
-		return count;
+		return count/od.getProducts().length;
 	}
 	
 	public void end() throws IOException{
