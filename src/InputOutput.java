@@ -17,7 +17,7 @@ import it.polito.utility.files.CsvParser;
 
 public class InputOutput {
 	
-	private char[][] map;
+	private int[][] dw_map;
 	private int rows;
 	private int columns;
 	
@@ -62,6 +62,7 @@ public class InputOutput {
 		sc.useDelimiter(" ");
 		rows=sc.nextInt();
 		columns=sc.nextInt();
+		dw_map=new int[rows][columns];
 		n_drones=sc.nextInt();
 		deadline=sc.nextInt();
 		max_load=sc.nextInt();
@@ -96,6 +97,7 @@ public class InputOutput {
 		sc.useDelimiter(" ");
 		x=sc.nextInt();
 		y=sc.nextInt();
+		dw_map[x][y]=i;
 		sc.close();
 		dw.add(new Warehouse(x,y,reader.readLine(),n_products));
 		}
@@ -117,11 +119,10 @@ public class InputOutput {
 	
 			sc=new Scanner(reader.readLine());
 			sc.useDelimiter(" ");
-			int n_p = sc.nextInt();
+			int Li = sc.nextInt();
 			sc.close();
 			
-			reader.readLine();
-			orders.add(new Order(x,y,n_p,reader.readLine()));				
+			orders.add(new Order(x,y,Li,n_products,reader.readLine()));				
 		}
 		
 		reader.close();
@@ -132,23 +133,29 @@ public class InputOutput {
 	public void end() throws IOException{
 		
 		BufferedWriter writer = new BufferedWriter(new FileWriter(outPath));
-		System.out.println("col= "+ this.getColumns() + " rows= " + this.getRows() + 
+		writer.write("col= "+ this.getColumns() + " rows= " + this.getRows() + 
 				" n_dw= " + this.getN_dw() +" dw= "+ this.getDw() 
 				+ " n_products= " + this.getN_products() + " products= "+ this.getProducts() + 
-				"n_orders= "+ this.getN_orders()+ " orders= " + this.getOrders());
+				"n_orders= "+ this.getN_orders()+ " orders= " + this.getOrders()+"\n");
+		
+		for(int i=0;i<rows;i++){
+			for(int j=0;j<columns;j++)
+			System.out.print(dw_map[i][j]);
+			System.out.print("\n");
+		}
 	
 		
 	}
 
 	//getter methods
 	
-	public char[][] getMap() {
-		return map;
+	public int[][] getDw_Map() {
+		return dw_map;
 	}
 
 
-	public int getDrones() {
-		return drones;
+	public int getN_Drones() {
+		return n_drones;
 	}
 
 
