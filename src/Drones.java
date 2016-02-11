@@ -1,11 +1,12 @@
 
 public class Drones {
 	
+	private int droneID;
 	private int maxWeight;
 	private int[] products;
 
 	public void setMaxWeight(int maxWeight) {
-		maxWeight = maxWeight;
+		this.maxWeight = maxWeight;
 	}
 	
 	public void initializeProducts(int nrProducts) {
@@ -15,11 +16,23 @@ public class Drones {
 		}
 	}
 	
-	public void load(int productToLoad) {
+	public void load(int customerID, int productToLoad, int qntOfProduct) {
+		
 	}
 	
+	public void deliver(int customerID, int productToDeliver, int qntOfProduct) {
+		
+	}
 	
+	public void unload (int productToUnload, int nrOfProductsToUnload) {
+		
+	}
 	
+	public void wait (int turnsToWait) {
+		
+	}
+	
+	private ()
 	
 	
 	
