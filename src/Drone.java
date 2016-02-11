@@ -22,7 +22,7 @@ public class Drone {
 
 	public String load(int warehouseID, int product, int quantity) {
 		if (products[product]>quantity) {
-			products[product] = products[product]-quantity;
+			products[product] = products[product]+quantity;
 			//this should be printed on a file
 			return(droneID + " L " + warehouseID + " " + product + " " + quantity);
 		}
