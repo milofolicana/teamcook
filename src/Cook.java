@@ -17,21 +17,25 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 
 public class Cook extends JFrame {
-
+	static JFrame frame;
+	
 	public static void main(String[] args) throws IOException {
 		
-		
+		frame = new JFrame();
 		JFileChooser chooser = new JFileChooser();
-		int returnVal = chooser.showOpenDialog(chooser.getParent());
+		
+		int returnVal = chooser.showOpenDialog(frame);
 		
 		String in = chooser.getSelectedFile().getAbsolutePath();
 		String out = chooser.getSelectedFile().getParent()+"\\out.txt";
+		
+		
 		InputOutput tim;
 		
 		tim = new InputOutput(in,out);
 		tim.start();
 		tim.end();
-
+		frame.setVisible(false);
 	}
 
 }
