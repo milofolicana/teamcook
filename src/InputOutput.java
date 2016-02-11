@@ -8,6 +8,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -37,7 +38,6 @@ public class InputOutput {
 	private String first_line;
 	private String second_line;
 	private String third_line;
-	private String ourth_line;
 	private String fourth_line;
 	
 	private int drones;
@@ -70,24 +70,30 @@ public class InputOutput {
 		//second_line---->P
 		second_line=reader.readLine();
 		sc=new Scanner(second_line);
+		sc.useDelimiter(" ");
 		n_products=sc.nextInt();
 		products=new int[n_products];
 		sc.close();
 		
 		//read products
+		sc=new Scanner(reader.readLine());
+		sc.useDelimiter(" ");
 		for(int i=0;i<n_products;i++){
-			products[i]=Integer.parseInt(reader.readLine());
+			products[i]=sc.nextInt();
 		}
+		sc.close();
 		
 		//thirdline--->DW
 		third_line=reader.readLine();
 		sc=new Scanner(third_line);
+		sc.useDelimiter(" ");
 		n_dw=sc.nextInt();
 		sc.close();
 		
 		//read warehouse
 		for(int i=0;i<n_dw;i++){
 		sc=new Scanner(reader.readLine());
+		sc.useDelimiter(" ");
 		x=sc.nextInt();
 		y=sc.nextInt();
 		sc.close();
@@ -97,64 +103,96 @@ public class InputOutput {
 		//4th line
 		fourth_line=reader.readLine();
 		sc=new Scanner(fourth_line);
+		sc.useDelimiter(" ");
 		n_orders=sc.nextInt();
 		sc.close();
 		
 		//read orders
 		for(int i=0;i<n_orders;i++){
 			sc=new Scanner(reader.readLine());
+			sc.useDelimiter(" ");
 			x=sc.nextInt();
 			y=sc.nextInt();
 			sc.close();
 	
 			sc=new Scanner(reader.readLine());
+			sc.useDelimiter(" ");
 			int n_p = sc.nextInt();
 			sc.close();
 			
-			orders.add(new Order(x,y,reader.Line(),n_p));				
+			reader.readLine();
+			orders.add(new Order(x,y,n_p,reader.readLine()));				
 		}
+		
 		
 	}
 	
 	public void end() throws IOException{
 		
+		BufferedWriter writer = new BufferedWriter(new FileWriter(outPath));
+		System.out.println("col= "+ this.getColumns() + " rows= " + this.getRows() + 
+				" n_dw= " + this.getN_dw() +" dw= "+ this.getDw() 
+				+ " n_products= " + this.getN_products() + " products= "+ this.getProducts() + 
+				"n_orders= "+ this.getN_orders()+ " orders= " + this.getOrders());
+	
 		
 	}
 
+	//getter methods
+	
 	public char[][] getMap() {
 		return map;
 	}
 
-	public void setMap(char[][] map) {
-		this.map = map;
-	}
 
 	public int getDrones() {
 		return drones;
 	}
 
-	public void setDrones(int drones) {
-		this.drones = drones;
-	}
 
 	public int getDeadline() {
 		return deadline;
 	}
 
-	public void setDeadline(int deadline) {
-		this.deadline = deadline;
-	}
 
 	public int getMax_load() {
 		return max_load;
 	}
 
-	public void setMax_load(int max_load) {
-		this.max_load = max_load;
+	public int getRows() {
+		return rows;
 	}
+
+	public int getColumns() {
+		return columns;
+	}
+
+	public int getN_products() {
+		return n_products;
+	}
+
+	public int[] getProducts() {
+		return products;
+	}
+
+	public ArrayList<Warehouse> getDw() {
+		return dw;
+	}
+
+	public int getN_dw() {
+		return n_dw;
+	}
+
+	public ArrayList<Order> getOrders() {
+		return orders;
+	}
+
+	public int getN_orders() {
+		return n_orders;
+	}
+
 	
 	
-	//getter methods
 	
 	
 }

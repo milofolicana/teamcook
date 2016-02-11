@@ -37,4 +37,12 @@ public class Warehouse {
         }
         sc.close();
 	}
+	
+	public int getProductQuantity(int p){
+		return this.products[p];
+	}
+	
+	public int[] getProducts(){
+		return this.products;
+	}
 }
