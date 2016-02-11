@@ -50,5 +50,14 @@ public class Drone {
 	public String getPath(){
 		return sb.toString();
 	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+	
 	
 }
