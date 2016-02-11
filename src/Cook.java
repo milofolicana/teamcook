@@ -27,7 +27,7 @@ public class Cook extends JFrame {
 		int returnVal = chooser.showOpenDialog(frame);
 		
 		String in = chooser.getSelectedFile().getAbsolutePath();
-		String out = chooser.getSelectedFile().getParent()+"\\out.txt";
+		String out = chooser.getSelectedFile().getParent()+File.separator+"out.txt";
 		
 		
 		InputOutput tim;
@@ -35,7 +35,7 @@ public class Cook extends JFrame {
 		tim = new InputOutput(in,out);
 		tim.start();
 		tim.end();
-		frame.setVisible(false);
+		
 	}
 
 }
