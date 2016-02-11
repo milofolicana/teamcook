@@ -25,6 +25,7 @@ public class InputOutput {
 	
 	private ArrayList<Warehouse> dw = new ArrayList<>();
 	private int n_dw;
+	private int x,y;
 	
 	private String inputPath;
 	private String outPath;
@@ -81,6 +82,10 @@ public class InputOutput {
 		//read warehouse
 		for(int i=0;i<n_dw;i++){
 		sc=new Scanner(reader.readLine());
+		x=sc.nextInt();
+		y=sc.nextInt();
+		dw.add(new Warehouse(x,y,reader.readLine()));
+		
 		}
 		
 		
