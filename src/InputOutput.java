@@ -52,7 +52,7 @@ public class InputOutput {
 		while(line!=null){
 			matrix[i]=line.toCharArray();
 			matrix_bis[i]=line.toCharArray();
-			nicolaFunction(matrix_bis[i]);
+			miloFunction(matrix_bis[i]);
 			i++;
 			line=reader.readLine();
 		}
