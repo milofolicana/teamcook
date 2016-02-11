@@ -13,6 +13,7 @@ public class Cook {
 		
 		tim = new InputOutput(in,out);
 		tim.start();
+		tim.end();
 
 	}
 
