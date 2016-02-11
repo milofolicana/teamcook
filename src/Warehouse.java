@@ -78,4 +78,18 @@ public class Warehouse {
 	public int[] getProducts(){
 		return this.products;
 	}
+
+
+
+	public int getX() {
+		return x;
+	}
+
+
+
+	public int getY() {
+		return y;
+	}
+	
+	
 }

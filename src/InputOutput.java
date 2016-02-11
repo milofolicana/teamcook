@@ -132,6 +132,11 @@ public class InputOutput {
 			orders.add(new Order(x,y,Li,n_products,reader.readLine()));				
 		}
 		
+		//initializeDrones
+		for(int i=0; i<n_drones; i++){
+			drones.add(new Drone(i, max_load, n_products, dw.get(0).getX(), dw.get(0).getY()));
+		}
+		
 		reader.close();
 		
 		
