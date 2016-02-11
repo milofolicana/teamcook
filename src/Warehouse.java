@@ -78,9 +78,6 @@ public class Warehouse {
 	public int[] getProducts(){
 		return this.products;
 	}
-<<<<<<< HEAD
-
-
 
 	public int getX() {
 		return x;
@@ -91,12 +88,8 @@ public class Warehouse {
 	public int getY() {
 		return y;
 	}
-	
-	
-=======
-	
+		
 	public void updateProduct(int p, int quantity){
 		this.products[p]=this.products[p]-quantity;
 	}
->>>>>>> origin/master
 }
