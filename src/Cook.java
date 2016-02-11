@@ -21,21 +21,51 @@ public class Cook extends JFrame {
 	
 	public static void main(String[] args) throws IOException {
 		
+		//1
+		
 		frame = new JFrame();
 		JFileChooser chooser = new JFileChooser();
 		
 		int returnVal = chooser.showOpenDialog(frame);
 		
 		String in = chooser.getSelectedFile().getAbsolutePath();
-		String out = chooser.getSelectedFile().getParent()+File.separator+"out.txt";
+		String out = chooser.getSelectedFile().getParent()+File.separator+"out1.txt";
 			
 		InputOutput tim = new InputOutput(in,out);
 		tim.start();
 		tim.initializeDistances();
-		
-		
-		
 		tim.end();
+		
+		//2
+		
+		frame = new JFrame();
+		chooser = new JFileChooser();
+		
+		returnVal = chooser.showOpenDialog(frame);
+		
+		in = chooser.getSelectedFile().getAbsolutePath();
+		out = chooser.getSelectedFile().getParent()+File.separator+"out2.txt";
+			
+		tim = new InputOutput(in,out);
+		tim.start();
+		tim.initializeDistances();
+		tim.end();
+		
+		//3
+		
+		frame = new JFrame();
+		chooser = new JFileChooser();
+		
+		returnVal = chooser.showOpenDialog(frame);
+		
+		in = chooser.getSelectedFile().getAbsolutePath();
+		out = chooser.getSelectedFile().getParent()+File.separator+"out3.txt";
+			
+		tim = new InputOutput(in,out);
+		tim.start();
+		tim.initializeDistances();
+		tim.end();
+		
 		
 	}
 

@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -165,22 +166,24 @@ public class InputOutput {
 	
 	public void sortOrder(){
 		
-		
+		this.getOrders().stream().
+		sorted(Comparator.comparing((Order one) -> distWareOrd(0,orders.indexOf(one))).reversed());
+//				(Order one, Order two)->{
+//			return satisfy(one,dw.get(0))-satisfy(two,dw.get(0));
+//		});
 		
 	}
 	
-	public int satisfy(int o, int d){
+	public int satisfy(Order o, Warehouse ware){
 		int count=0;
-		Warehouse ware = dw.get(d);
-		Order od=orders.get(o);
-		for(int i=0;i<od.getProducts().length;i++){
-			int p=od.getProductQuantity(i);
-			int prod=od.getProducts()[i];
+		for(int i=0;i<o.getProducts().length;i++){
+			int p=o.getProductQuantity(i);
+			int prod=o.getProducts()[i];
 			if(ware.getProductQuantity(prod)>=p)
 				count+=1;
 		else count+=(p-ware.getProductQuantity(prod))/p;
 		}
-		return count/od.getProducts().length;
+		return count;
 	}
 	
 	public void end() throws IOException{
