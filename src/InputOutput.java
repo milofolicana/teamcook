@@ -154,7 +154,7 @@ public class InputOutput {
 				" n_dw= " + this.getN_dw() +" dw= "+ this.getDw() 
 				+ " n_products= " + this.getN_products() + " products= "+ this.getProducts() + 
 				"n_orders= "+ this.getN_orders()+ " orders= " + this.getOrders()+
-				+ " n_drones= "+ this.getN_Drones()+" drones= "+ this.drones()+ "\n");
+				" n_drones= " + this.getN_Drones()+" drones= "+ this.drones+ "\n");
 		
 		for(int i=0;i<rows;i++){
 			for(int j=0;j<columns;j++)
