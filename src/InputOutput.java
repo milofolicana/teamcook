@@ -179,6 +179,7 @@ public class InputOutput {
 				count+=1;
 		else count+=(p-ware.getProductQuantity(prod))/p;
 		}
+		return count;
 	}
 	
 	public void end() throws IOException{
